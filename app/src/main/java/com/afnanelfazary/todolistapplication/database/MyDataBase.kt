@@ -14,7 +14,7 @@ import java.security.AccessControlContext
 @TypeConverters(DateConverter::class)
 abstract class MyDataBase :RoomDatabase(){
 
-    abstract  fun todoDao(): TodoDao
+    abstract  fun getTaskDao(): TodoDao
     companion object{
         private val DATABASE_NAME="todo-Database"
       private  var myDataBase:MyDataBase?=null

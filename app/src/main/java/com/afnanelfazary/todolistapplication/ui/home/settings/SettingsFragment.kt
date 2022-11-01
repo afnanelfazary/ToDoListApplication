@@ -1,10 +1,11 @@
-package com.afnanelfazary.todolistapplication
+package com.afnanelfazary.todolistapplication.ui.home.settings
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.afnanelfazary.todolistapplication.R
 
 //    private var fragbinding = TodoListFragment? = null
 class SettingsFragment : Fragment() {

@@ -8,10 +8,13 @@ import java.util.*
 data class Todo(
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "ID")
-    val id:Int,
+    var id:Int?=null,
     @ColumnInfo(name = "Title")
-    val name:String?=null,
-    val details:String?=null,
-    val date: Date?=null,
-    val isDone:Boolean?=false
+    var name:String?=null,
+    @ColumnInfo
+    var details:String?=null,
+    @ColumnInfo
+    var date: Date?=null,
+    @ColumnInfo
+    var isDone:Boolean?=false
 )
