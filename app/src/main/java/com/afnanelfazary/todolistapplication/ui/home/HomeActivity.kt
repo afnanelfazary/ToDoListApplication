@@ -1,16 +1,20 @@
-package com.afnanelfazary.todolistapplication
+package com.afnanelfazary.todolistapplication.ui.home
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
+import com.afnanelfazary.todolistapplication.R
 import com.afnanelfazary.todolistapplication.databinding.ActivityHomeBinding
+import com.afnanelfazary.todolistapplication.ui.home.add.AddTodoBottomSheet
+import com.afnanelfazary.todolistapplication.ui.home.list.TodoListFragment
+import com.afnanelfazary.todolistapplication.ui.home.settings.SettingsFragment
 import com.google.android.material.navigation.NavigationBarView
 
 
 class HomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHomeBinding  //defining the binding class
-
+val  todoListFragment = TodoListFragment()
+    val settingsFragment = SettingsFragment()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
      //   setContentView(R.layout.activity_home)
@@ -24,19 +28,19 @@ class HomeActivity : AppCompatActivity() {
            }
          binding.bottomNavigationView.setOnItemSelectedListener(
              NavigationBarView.OnItemSelectedListener  {item->
-             if (item.itemId==R.id.navigationList)
+             if (item.itemId== R.id.navigationList)
              {
 
-              pushFragment(TodoListFragment())
+              pushFragment(todoListFragment)
          }
-                 else if(item.itemId==R.id.navigationSettings)
+                 else if(item.itemId== R.id.navigationSettings)
              {
-                 pushFragment(SettingsFragment())
+                 pushFragment(settingsFragment)
 
              }
                  return@OnItemSelectedListener true
              })
-        binding.bottomNavigationView.selectedItemId=R.id.navigationList
+        binding.bottomNavigationView.selectedItemId= R.id.navigationList
 
 
 }
@@ -44,6 +48,18 @@ class HomeActivity : AppCompatActivity() {
     private fun showAddBottomSheet() {
         val addBottomSheet = AddTodoBottomSheet()
         addBottomSheet.show(supportFragmentManager,"")
+
+        //callback
+        addBottomSheet.onTodoAddedListener=object : AddTodoBottomSheet.OnTodoAddedListener
+        {
+            override fun OnTodoAdded()  {
+                //refresh Todos list from database inside listfragment
+               if (todoListFragment.isVisible)
+               {  todoListFragment.reloadTodosListFromDB()
+
+             }}
+        }
+
      }
 
     fun pushFragment(fragment: Fragment)

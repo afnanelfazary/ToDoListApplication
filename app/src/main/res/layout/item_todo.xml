@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+     android:layout_margin="4dp"
+    app:cardCornerRadius="18dp"
+    android:elevation="18dp"
+    app:cardElevation="18dp"
+    android:outlineAmbientShadowColor="@color/gray"
+    android:outlineSpotShadowColor="@color/gray">
+
+    <com.zerobranch.layout.SwipeLayout
+        android:id="@+id/swipe_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:draggedItem="@id/content"
+         app:leftItem="@id/delete"
+         app:swipeDirection="right"
+         app:isTogether="true">
+
+        <LinearLayout
+            android:id="@+id/delete"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingHorizontal="48dp"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:background="@drawable/rounded_left_red"
+            >
+            <ImageView
+                 android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_delete"
+                android:background="@color/red"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Delete"
+                android:textColor="@color/white"
+                />
+
+        </LinearLayout>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/content"
+                android:layout_width="match_parent"
+                android:padding="18dp"
+                android:background="@color/white_blue"
+                android:layout_height="wrap_content">
+            <View
+                android:id="@+id/line"
+                android:layout_width="4dp"
+                android:layout_height="80dp"
+                android:background="@color/primary_color"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/mark_as_done"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/rounded_shape"
+                    android:paddingHorizontal="24dp"
+                    android:paddingVertical="12dp"
+                    android:src="@drawable/icon_done"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+                <TextView
+                    android:id="@+id/mark_as_done_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                     android:paddingVertical="12dp"
+                    android:textSize="25sp"
+                    android:textColor="@color/font_green"
+                    android:text="Done !"
+                    android:textStyle="bold"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <TextView
+            android:id="@+id/title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="24dp"
+            android:textColor="@color/primary_color"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/description"
+            app:layout_constraintEnd_toStartOf="@id/mark_as_done"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@id/line"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Android Assignment"
+            app:layout_constraintVertical_chainStyle="spread"/>
+
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="24dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="@color/gray_white"
+            android:textSize="12sp"
+             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/mark_as_done"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@id/line"
+            app:layout_constraintTop_toBottomOf="@+id/title"
+            tools:text="@tools:sample/lorem/random" />
+
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.zerobranch.layout.SwipeLayout>
+</androidx.cardview.widget.CardView>
+
+
+
+
+
+
+
+
+

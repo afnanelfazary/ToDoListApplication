@@ -9,5 +9,8 @@
     <color name="white">#FFFFFFFF</color>
     <color name="font">#FFFFFF</color>
     <color name="transparent">#00FFFFFF</color>
+    <color name="white_blue">#141922</color>
+    <color name="gray_white">#FFFFFFFF</color>
+    <color name="black_white">#FFFFFFFF</color>
 
 </resources>
